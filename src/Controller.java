@@ -67,7 +67,7 @@ public class Controller {
         System.out.print("Seleccione una opcion: ");
     }
 
-    private  void crearCandidato() {
+    public  void crearCandidato() {
         System.out.println("Ingrese el nombre del candidato: ");
         String nombre = console.nextLine();
     
@@ -164,7 +164,7 @@ public class Controller {
         return candidato;
     }
 
-    private int candidato_index(){
+    public int candidato_index(){
         //VALIDAMOS
         if(listaCandidato.size()==0){
             System.out.println("No hay candidatos");
@@ -184,7 +184,7 @@ public class Controller {
 
 
     //Metodo opcion 3 eliminar candidato
-    private void eliminarCandidato(int indice) {
+    public void eliminarCandidato(int indice) {
         //VALIDAMOS
         if(indice == -1){return;}
         Candidato candidato = listaCandidato.remove(indice);
@@ -193,7 +193,7 @@ public class Controller {
 
 
     //Metodo 4 buscar y mostrar candidato
-    private void buscarCandidato() {
+    public void buscarCandidato() {
         //VALIDAMOS
         if(listaCandidato.size()==0){
             System.out.println("No hay candidatos");
@@ -216,7 +216,7 @@ public class Controller {
 
     //Metodo 5 mostrar lista de candidatos
 
-    private void imprimirListaCandidatos() {
+    public void imprimirListaCandidatos() {
         int contadorCandidato = 1;
 
         //VALIDAMOS
@@ -247,7 +247,7 @@ public class Controller {
     }
 
     //Metodo 6 menu para insertar los votos de los candidatos
-    private void menuVotos()
+    public void menuVotos()
                 {
         int opcion;
 

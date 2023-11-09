@@ -10,11 +10,7 @@ public class Controller {
 
 
     public Controller (){
-        listaCandidato.add(new Candidato("Candidato1", "123456789", Ciudades.ALCALA, Orientacion.DERECHA, Partido.MOVIMIENTO_FUERZA_CIUDADANA, new ArrayList<>()));
-        listaCandidato.add(new Candidato("Candidato2", "987654321", Ciudades.ALCALA, Orientacion.DERECHA, Partido.INDEPENDIENTES, new ArrayList<>()));
-        listaCandidato.add(new Candidato("Candidato3", "555555555", Ciudades.ALCALA, Orientacion.DERECHA, Partido.INDEPENDIENTES, new ArrayList<>()));
-        listaCandidato.add(new Candidato("Candidato2", "987654321", Ciudades.TORO, Orientacion.DERECHA, Partido.INDEPENDIENTES, new ArrayList<>()));
-        }
+    }
     public void menu() {
         int opcion;
 
@@ -67,7 +63,7 @@ public class Controller {
         System.out.print("Seleccione una opcion: ");
     }
 
-    public  void crearCandidato() {
+    private  void crearCandidato() {
         System.out.println("Ingrese el nombre del candidato: ");
         String nombre = console.nextLine();
     
@@ -164,7 +160,7 @@ public class Controller {
         return candidato;
     }
 
-    public int candidato_index(){
+    private int candidato_index(){
         //VALIDAMOS
         if(listaCandidato.size()==0){
             System.out.println("No hay candidatos");
@@ -184,7 +180,7 @@ public class Controller {
 
 
     //Metodo opcion 3 eliminar candidato
-    public void eliminarCandidato(int indice) {
+    private void eliminarCandidato(int indice) {
         //VALIDAMOS
         if(indice == -1){return;}
         Candidato candidato = listaCandidato.remove(indice);
@@ -193,7 +189,7 @@ public class Controller {
 
 
     //Metodo 4 buscar y mostrar candidato
-    public void buscarCandidato() {
+    private void buscarCandidato() {
         //VALIDAMOS
         if(listaCandidato.size()==0){
             System.out.println("No hay candidatos");
@@ -216,7 +212,7 @@ public class Controller {
 
     //Metodo 5 mostrar lista de candidatos
 
-    public void imprimirListaCandidatos() {
+    private void imprimirListaCandidatos() {
         int contadorCandidato = 1;
 
         //VALIDAMOS
@@ -247,7 +243,7 @@ public class Controller {
     }
 
     //Metodo 6 menu para insertar los votos de los candidatos
-    public void menuVotos()
+    private void menuVotos()
                 {
         int opcion;
 

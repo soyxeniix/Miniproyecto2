@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 public class Controller {
     private static Scanner console = new Scanner(System.in);
-    private ArrayList<Candidato> listaCandidato = new ArrayList<>();
+    public ArrayList<Candidato> listaCandidato = new ArrayList<>();
 
 
     public Controller (){
@@ -34,8 +34,12 @@ public class Controller {
                     break;
                 case 5:
                     imprimirListaCandidatos();
+                    break;
                 case 6:
                     menuVotos();
+                    break;
+                case 7:
+                    obtenerListaCandidatos();
                     break;
                 case 0:
                     System.out.println("Ha decidido salir del menu");
@@ -212,7 +216,7 @@ public class Controller {
 
     //Metodo 5 mostrar lista de candidatos
 
-    private void imprimirListaCandidatos() {
+    public void imprimirListaCandidatos() {
         int contadorCandidato = 1;
 
         //VALIDAMOS
@@ -241,6 +245,12 @@ public class Controller {
         }
         System.out.println("---------------------------");
     }
+
+    public List<Candidato> obtenerListaCandidatos() {
+        System.out.println(listaCandidato);
+        return listaCandidato;
+    }
+    
 
     //Metodo 6 menu para insertar los votos de los candidatos
     private void menuVotos()

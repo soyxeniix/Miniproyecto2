@@ -1,3 +1,7 @@
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+
 public class BuscarCandidato extends javax.swing.JFrame {
 
     /**
@@ -6,6 +10,7 @@ public class BuscarCandidato extends javax.swing.JFrame {
     public BuscarCandidato() {
         initComponents();
     }
+    Controller controller = new Controller();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,15 +33,17 @@ public class BuscarCandidato extends javax.swing.JFrame {
         jLabel1.setText("Buscar Candidato");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Lista de candidatos");
 
-        jComboBox1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Candidato1", "Candidato2", "Candidato3", "Candidato4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        List<Candidato> candidatos = controller.obtenerListaCandidatos();
+        System.out.println("Número de candidatos obtenidos: " + candidatos.size());
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (Candidato candidato : candidatos) {
+        model.addElement(candidato.getNombre());
+    }
+
+    jComboBox1.setModel(model);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,11 +94,14 @@ public class BuscarCandidato extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        Controller controller = new Controller();
+        BuscarCandidato buscarCandidato = new BuscarCandidato();
+    
+        // Centrar la ventana en la pantalla
+        buscarCandidato.setLocationRelativeTo(null);
+    
+        buscarCandidato.setVisible(true);
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -108,15 +118,8 @@ public class BuscarCandidato extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(BuscarCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BuscarCandidato().setVisible(true);
-            }
-        });
     }
+    
 
     // Variables declaration - do not modify                     
     private javax.swing.JComboBox<String> jComboBox1;

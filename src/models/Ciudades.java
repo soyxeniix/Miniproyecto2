@@ -1,3 +1,4 @@
+package models;
 public enum Ciudades {
     ALCALA, 
     ANDALUCIA, 
@@ -40,5 +41,11 @@ public enum Ciudades {
     VIJES, 
     YOTOCO, 
     YUMBO, 
-    ZARZAL
+    ZARZAL;
+
+    @Override
+    public String toString() {
+   
+    return super.toString().replaceAll("_", " " );
+    }
 }

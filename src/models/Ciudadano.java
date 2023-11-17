@@ -1,3 +1,4 @@
+package models;
 public class Ciudadano{
     private String nombre, cedula;
     private Ciudades ciudad;
